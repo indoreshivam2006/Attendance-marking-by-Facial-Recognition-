@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: attendance-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: attendance_db
+      MYSQL_USER: attendance_user
+      MYSQL_PASSWORD: attendance_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - attendance-network
+
+  # Python Backend for Facial Recognition
+  python-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: attendance-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - ./student_images:/app/student_images
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: attendance_user
+      MYSQL_PASSWORD: attendance_pass
+      MYSQL_DB: attendance_db
+      STUDENT_IMAGES_DIR: /app/student_images
+    depends_on:
+      - mysql
+    networks:
+      - attendance-network
+    command: ["python", "simple_server.py"]  # Use simple server for demo
+
+  # Next.js Frontend
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: attendance-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:5000
+      DATABASE_URL: mysql://attendance_user:attendance_pass@mysql:3306/attendance_db
+    depends_on:
+      - mysql
+      - python-backend
+    networks:
+      - attendance-network
+
+volumes:
+  mysql_data:
+
+networks:
+  attendance-network:
+    driver: bridge

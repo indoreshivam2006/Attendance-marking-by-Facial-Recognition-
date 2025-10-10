@@ -1,0 +1,28 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "student_id": "Jlu08355",
+      "name": "Mithun kumar raja ",
+      "email": "jlu08355@student.jlu.edu.in",
+      "department": "Computer Science ",
+      "semester": "5",
+      "batch": "2023-2027",
+      "created_at": "2025-10-08T12:35:35.680619"
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "title": null,
+      "subject": "CN ",
+      "start_time": "2025-10-08 12:39:00",
+      "end_time": "2025-10-08 12:40:00",
+      "status": "scheduled",
+      "created_at": "2025-10-08T12:38:26.867518"
+    }
+  ],
+  "attendance_records": [],
+  "student_images": {},
+  "movement_logs": []
+}
