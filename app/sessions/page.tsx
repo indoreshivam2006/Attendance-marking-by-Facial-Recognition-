@@ -360,9 +360,14 @@ export default function SessionsPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Select Department</option>
-                {filters.departments.map(dept => (
-                  <option key={dept} value={dept}>{dept}</option>
-                ))}
+                <option value="ALL">Show Every Department</option>
+                {filters.departments && filters.departments.length > 0 ? (
+                  filters.departments.map(dept => (
+                    <option key={dept} value={dept}>{dept}</option>
+                  ))
+                ) : (
+                  <option disabled>No departments available</option>
+                )}
               </select>
             </div>
 

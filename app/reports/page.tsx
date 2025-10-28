@@ -587,8 +587,8 @@ export default function ReportsPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {(showAllStudents ? allStudentsStats : lowAttendanceStudents).map((student) => (
-                  <tr key={student.id} className="hover:bg-gray-50">
+                {(showAllStudents ? allStudentsStats : lowAttendanceStudents).map((student, index) => (
+                  <tr key={`student-${student.id}-${student.student_id}-${index}`} className="hover:bg-gray-50">
                     <td className="px-4 py-3 text-gray-900">{student.student_id}</td>
                     <td className="px-4 py-3 text-gray-900 font-medium">{student.name}</td>
                     <td className="px-4 py-3 text-gray-600">{student.department || "N/A"}</td>

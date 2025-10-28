@@ -109,6 +109,38 @@
       "duration_minutes": 120,
       "status": "scheduled",
       "created_at": "2025-10-10T12:09:21.841290"
+    },
+    {
+      "id": 6,
+      "title": null,
+      "subject": "Computer Network ",
+      "instructor": "Anjali mam",
+      "classroom": "102",
+      "department": "Computer Science",
+      "year": null,
+      "batch": null,
+      "className": "CN",
+      "start_time": "2025-10-20 16:48:12",
+      "end_time": "2025-10-20 17:48:12",
+      "duration_minutes": 60,
+      "status": "scheduled",
+      "created_at": "2025-10-20T22:18:13.027525"
+    },
+    {
+      "id": 7,
+      "title": null,
+      "subject": "CN",
+      "instructor": "Live Session",
+      "classroom": "Live",
+      "department": "Computer Science",
+      "year": null,
+      "batch": null,
+      "className": "CN",
+      "start_time": "2025-10-20 16:48:19",
+      "end_time": "2025-10-20 18:48:19",
+      "duration_minutes": 120,
+      "status": "completed",
+      "created_at": "2025-10-20T22:18:19.825177"
     }
   ],
   "attendance_records": [
@@ -183,6 +215,17 @@
       "status": "present",
       "marked_at": "2025-10-10T12:17:12.671421",
       "recognition_confidence": 0.9020522177775843
+    },
+    {
+      "id": 8,
+      "student_id": 3,
+      "session_id": 7,
+      "student_name": "Shivam Indore",
+      "student_code": "Jlu07986",
+      "entry_time": "2025-10-20T22:18:31.192696",
+      "status": "present",
+      "marked_at": "2025-10-20T22:18:31.192719",
+      "recognition_confidence": 0.9018958087267207
     }
   ],
   "student_images": {

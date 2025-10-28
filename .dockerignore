@@ -1,0 +1,26 @@
+# Add this to your .gitignore to keep sensitive information secure
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Docker volumes
+mysql_data/
+
+# Student images (if they contain personal data)
+# student_images/
+
+# Logs
+*.log
+logs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
